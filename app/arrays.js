@@ -91,14 +91,13 @@ exports.arraysAnswers = {
           cnt[arr[index]] = cnt[arr[index]] + 1;
         }
     }
-    console.log(cnt);
+  
       
     for (var key in cnt) {
       if(cnt[key] > 1) {
         dub.push(Number(key));
       }
     }
-    console.log(dub);
 
     return dub;
 
