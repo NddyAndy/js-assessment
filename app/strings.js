@@ -2,7 +2,6 @@ exports = typeof window === 'undefined' ? global : window;
 
 exports.stringsAnswers = {
   reduceString: function(str, amount) {
-    
       var cnt = {};
     var dub = [];
     var arr = str.split('');
@@ -36,7 +35,21 @@ exports.stringsAnswers = {
   },
 
   wordWrap: function(str, cols) {
-      
+      var result = [], line = [];
+      var length = 0;
+      str.split(" ").forEach(function(word) {
+            line.push(word);
+          if ((length + word.length) >= cols) {
+              result.push(line.join(" "));
+              line = []; length = 0;
+          }
+          length += word.length + 1;
+      });
+      if (line.length > 0) {
+          result.push(line.join(" "));
+      }
+      return result.join('\n');
+
   },
 
   reverseString: function(str) {
